@@ -1,0 +1,35 @@
+form > div{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px
+}
+input{
+    height:35px;
+    width:100%;
+    padding-left: 5px;
+    @include font('small') ;
+    border: none ;
+    border-radius: $borderRadius;
+    background:$color2
+
+}
+
+form button{
+    width:100%;
+    margin:20px 0;
+}
+form p{
+    color: red
+}
+h1{
+    text-align: center;
+    
+    color: $color4;
+    @include font('large') ;
+}
+input::placeholder{
+    font-size: 15px;
+}
+button{
+    background: linear-gradient(45deg,$color3 10px,$color5)
+}

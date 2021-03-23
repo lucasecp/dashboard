@@ -1,0 +1,44 @@
+@mixin device($size){
+    @if($size == 'medium') {
+    @media screen and (max-width: 768px){
+        @content;
+    }
+    };
+    @if($size == 'small') {
+    @media screen and (max-width: 540px){
+        @content;
+    }
+    };
+      @if($size == 'large') {
+    @media screen and (max-width: 1005px){
+        @content
+    }
+    }
+};
+@mixin font($size){
+    @if($size == 'medium') {
+    font-size: $fontMedium;
+    @include device('small'){
+        font-size: $fontSmall;
+    }
+    };
+    @if($size == 'small') {
+        font-size: $fontSmall;
+        @include device('small'){
+            font-size:  1em;
+        }
+    };
+      @if($size == 'large') {
+        font-size: $fontLarge;
+        @include device('small'){
+            font-size: $fontMedium;
+        }
+    };
+    @if($size == 'Xl') {
+        font-size: $fontXl;
+        font-weight: bold;
+        @include device('small'){
+            font-size: $fontLarge;
+        }
+    }
+}

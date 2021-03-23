@@ -1,0 +1,90 @@
+.modal{
+    position: absolute;
+    z-index: 99;
+    background: $color1;
+    border-radius: $borderRadius2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 5px 5px 9px rgba($color: #000000, $alpha: 0.2);
+    top:10px;
+    margin: auto;
+     @include device('small'){
+       width:80% !important
+    }
+   
+}
+.modal > *{
+    z-index: 99;
+}
+.modal-header{
+    color: $color1;
+    border-top-left-radius: $borderRadius2;
+    border-top-right-radius: $borderRadius2;
+    align-self: stretch;
+}
+.danger .modal-header{
+     background: $danger !important;
+     padding: 10px;
+     color:$color1;
+} 
+.danger .close-modal{
+    background: $danger;
+}
+.success .modal-header{
+    background: $success !important;
+    padding: 10px;
+    color:$color1;
+} 
+.success .close-modal{
+   background: $success;
+}
+.form .close-modal{
+    background: $color3
+}
+.modal-header h1{
+    @include font('medium');
+}
+.modal-content,.modal-footer{
+    padding:10px;
+}
+
+.close-modal{
+    position: absolute;
+    border-radius: 50%;
+    width:35px;
+    height:35px;
+    padding: 0;
+    right: -5px;
+    top: -5px;
+    border: solid $color1 2px
+}
+.close-modal svg{
+    color: $color1
+}
+.modal-container{
+    position: fixed;
+    width: 0%;
+    height: 0vh;
+    background: rgba($color: #000000, $alpha: 0.2);
+    top:0;
+    left:0;
+    display: flex;
+    justify-content: center;
+    opacity: 1;
+    transition: .3 ease opacity;
+    z-index: 9;
+    width: 100%;
+    height: 100vh;
+
+}
+
+
+.modal-enter, .modal-leave-to{
+    transform: translate3d(0,-10px,0);
+    opacity:0
+}
+.modal-enter-active, .modal-leave-active{
+    transition : all ease .3s
+}

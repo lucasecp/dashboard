@@ -1,0 +1,110 @@
+
+table th{
+    @include font('small');
+    padding: 15px 30px;
+    color:#222;
+    text-align: start;
+    border-bottom: solid darken($color2,30%) 1.5px;
+    
+}
+table{
+    width:100%
+}
+td{
+    padding: 15px 30px;
+    color:$color4
+}
+.users{
+    display: grid;
+    padding: 20px;
+    justify-content: space-between;
+    grid-template-columns: 1fr;
+    grid-template-rows: 35px 450px auto;
+    background-color: $color1;
+    @include device('medium'){
+        grid-template-rows: auto auto auto;
+        padding:20px 10px
+    }
+}
+.table{
+    overflow-x: auto;
+    margin:15px 0
+
+}
+header{
+    display: flex
+}
+input{
+    height: 35px;
+    width:300px;
+    padding-left: 45px;
+    @include device('small'){
+        width:100%
+    } 
+    background:$color1
+}
+form {
+    margin-right: 30px;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+.icon-search{
+    position: absolute;
+    height:100%;
+    width:20px;
+    background:$color5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+}
+.icon-search svg{
+   color: $color2
+}
+td button{
+    position: relative;
+    border-radius: 20px;
+    padding:0;
+    width:55px;
+    height:25px;
+    background-color: darken($color2,20%);
+}
+.ball{
+    position: absolute;
+    width: 50%;
+    height:90%;
+    border-radius: 50%;
+    background-color: $color1;
+    left:1.5px;
+    top: 1.5px;
+    transition: .2s ease all
+}
+.is-admin .ball{
+   left: 50%
+}
+.is-admin{
+    background: $success
+}
+.modal-users h1{
+    @include font('medium');
+    color: $color1
+}
+.modal-users p{
+    @include font('small');
+    color: $color4
+}
+
+.modal-users button{
+   padding:5px !important;
+   background: $color1;
+   color: #CC0000;
+   border: solid #CC0000 1.5px;
+   transition: all .1s linear;
+}
+.modal-users button:hover{
+    background: #CC0000;
+    color: $color1;
+}

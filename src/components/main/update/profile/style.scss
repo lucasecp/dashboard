@@ -1,0 +1,151 @@
+.profile-edit{
+    box-shadow: 5px 5px 9px rgba(0,0,0,0.1);
+    border-radius: $borderRadius;
+   background-color: $color1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    position: relative;
+    padding-top: 20px;
+     @include device('medium'){
+        align-items:stretch
+    }
+     @include device('small'){
+        padding: 70px 10px;
+       
+    }
+}
+.profile-edit form{
+    display: grid;
+    grid-template-columns: 350px 350px ;
+    grid-template-rows: repeat(3,40px);
+    gap:20px;
+    justify-content: center;
+    @include device('medium'){
+        grid-template-columns: minmax(250px,1fr) ;
+        grid-template-rows: repeat(5,40px);
+    }
+
+}
+.bg{
+    background: url('../../../../assets/bg2.jpg');
+    position: absolute;
+    height: 150px;
+    width:100%;
+    top: 0;
+    z-index: 1;
+    background-size: cover;
+    background-position: center;
+    left: 0
+}
+.bg::after{
+    content: '';
+    background: rgba($color: black, $alpha: 0.3);
+    position: absolute;
+    height: 150px;
+    width:100%;
+    top: 0;
+    z-index: 1;
+    left: 0
+}
+.form{
+    display: grid;
+    align-items: stretch
+}
+.messages{
+    align-self: flex-start;
+}
+
+.photo img{
+    border-radius: 50%;
+    max-height: 100%;
+}
+.photo img:hover{
+    background-color: rgba($color: #000000, $alpha: 0.6);
+}
+.photo-area{
+   display: grid;
+   grid-template-columns: 250px;
+   grid-template-rows: auto 25px 50px;
+   align-items:center;
+   justify-content: center;
+   z-index: 2;
+   gap: 10px;
+   margin-bottom: 5px;
+    @include device('medium'){
+        grid-template-columns: 130px;
+        grid-template-rows:  auto 25px ;
+        margin-bottom: 10px
+    }
+}
+.photo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.photo-area span{
+    margin: auto;
+    color: $color5;
+    cursor: pointer
+}
+.photo-area span:hover{
+   text-decoration: underline;
+}
+.photo-area svg{
+    @include font('small');
+    color:$color5;
+}
+.form button{
+    margin-left: 220px;
+     padding: 5px ;
+     width:300px ;
+     @include device('medium'){
+        margin: 0 auto
+     }
+      @include device('small'){
+        width:250px
+     }
+     background: $color5
+ }
+.destroy-profile{
+   background: transparent !important;
+   color:red;
+   border: solid 1.5px red;
+   height:40px;
+   margin-top: 15px !important;
+}
+.input-group{
+    display: flex ;
+    flex-direction: column;
+    align-items: stretch;
+    position: relative
+}
+.input-group p{
+    color: $danger;
+    position: absolute;
+    top: -18px;
+    right: 0;
+    font-size: 16px;
+}
+.input-error{
+    border: solid $danger 1.5px !important
+}
+.input-group input{
+    height: 100%;
+    @include font('small');
+}
+.btn-modal{
+    display: flex ;
+
+}
+.btn-modal>:first-child{
+padding: 10px;
+background: $color3;
+margin-right: 5px;
+}
+.btn-modal>:last-child{
+padding: 10px;
+background: $danger;
+}

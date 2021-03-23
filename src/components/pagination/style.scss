@@ -1,0 +1,38 @@
+ a.router-link-exact-active{
+    background: $color5 !important;
+    text-decoration: none;
+    color:$color1 !important
+}
+a{
+    background: none !important;
+    color: $color4;
+    @include font('small');
+    border-radius:0;
+    padding: 10px 40px;
+    text-align: center;
+    display:block;
+    width:auto;
+        @include device('small'){
+        padding: 10px 20px !important
+ }
+ border-radius:$borderRadius
+}
+li+li{
+     border-left: solid $color1 1.5px;
+}
+
+.next,.previous{
+   color:$color4;
+   @include font('small');
+     @include device('small'){
+      padding: 5px 10px !important
+  }
+}
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    border-radius:$borderRadius;
+    align-items: center;
+    padding:1px;
+    min-width: 250px;
+}

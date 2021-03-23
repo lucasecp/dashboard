@@ -1,0 +1,106 @@
+.overview{
+    display: grid;
+    grid-template-columns: 450px 1fr;
+    grid-template-rows: 100px 1fr;
+    padding:20px;
+    background-color: $color2;
+    grid-template-areas: 'list-data list-data' 'performance2 performance';
+    align-items: start;
+    justify-content: center;
+    gap: 30px 20px;
+    @include device('large'){
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 'list-data ' 'performance2' 'performance';
+    }
+    @include device('small'){
+       padding: 10px;
+       gap: 20px 10px;
+    }
+
+}
+.loading .overview-content{
+    background: linear-gradient(45deg,$color1,$color4);
+}
+.overview-data{
+    background-color: $color1;
+    border-radius: $borderRadius;
+    border:  darken($color2,20%) solid 1.5px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex:0 1 300px;
+     @include device('large'){
+       flex : 1 ;
+    }
+}
+.overview-data:nth-child(1) svg{
+    color: orange
+}
+.overview-data:nth-child(2) svg{
+    color: $success
+}
+.overview-data:nth-child(3) svg{
+    color: $danger
+}
+.overview-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+.overview-data h2{
+    color: $color4
+}
+.overview-data span{
+    align-self: flex-end;
+    margin-top: 20px;
+    @include font('medium');
+    color: #222
+}
+
+.list-overview{
+    grid-area: list-data;
+    display: flex;
+    justify-content: space-between;
+     @include device('large'){
+        flex-direction: column;
+      & .overview-data{
+        flex:0 1 100px;
+        margin:10px 0;
+    }
+    }
+  
+}
+.list-overview li{
+    padding: 10px;
+    
+}
+.list-overview svg{
+    @include font('medium');
+}
+.performance:nth-child(1){
+    grid-area: performance;
+}
+.performance:nth-child(2){
+    grid-area: performance2;
+}
+.chart{
+    width:400px;
+    flex:1;
+    @include device('small'){
+        width: 200px
+    }
+}
+.performance{
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    @include device('small'){
+        ´padding: 5px
+    }
+}
+.performance h2{
+    margin-bottom: 20px;
+
+}

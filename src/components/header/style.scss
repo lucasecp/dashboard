@@ -1,0 +1,42 @@
+header {
+    display: flex; 
+    background-color: $color1;
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: darken($color2,20%) solid 1.5px;
+    padding: 20px;
+    &>:first-child{
+        display: flex;
+        align-items: center;
+        & svg{
+         color: $color4;
+         margin-right: 15px;
+         @include font('large');
+        }
+    }
+    @include device('small'){
+        padding: 20px 10px
+    }
+}
+header h1{
+    color:$color4;
+    font-weight: normal;
+}
+header svg{
+cursor: pointer;
+@include font('small');
+}
+
+.logout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $danger !important;
+    cursor: pointer;
+    @include font('small');
+    & span:hover{
+      text-decoration: underline
+    }
+}

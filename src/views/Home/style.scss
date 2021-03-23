@@ -1,0 +1,21 @@
+.main{
+    grid-area: main;
+}
+
+.home{
+  background-color: $color2;
+  display: grid;
+  grid-template-columns:  1fr;
+  grid-template-rows:  70px 1fr;
+  grid-template-areas: "header header" "main main" ;
+  height: 100vh;
+  transition: .3s all ease-out;
+  padding-left: 200px;
+  @include device('medium'){
+    overflow-x: hidden
+  }
+}
+.home.full-screen{
+  transition: .3s all ease-out;
+  padding-left: 0px
+}

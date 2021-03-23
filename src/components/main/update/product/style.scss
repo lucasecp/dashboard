@@ -1,0 +1,178 @@
+.form-products{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(2,65px) 250px auto 40px ;
+    grid-template-areas: 'file inputName price ' ' file stock category ' 'file desc desc ' 'file loading loading ' 'file btn btn ' ;
+    gap: 20px 30px;
+    padding: 20px;
+    justify-content: center;
+     @include device('large'){
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 'file file''inputName price ' ' stock category ' 'desc desc ' 'loading loading' 'btn btn ' ;
+        grid-template-rows: auto repeat(2,65px) 250px 40px ;
+     }
+     @include device('small'){
+         grid-template-columns: 1fr;
+         grid-template-areas: 'file' 'inputName  ' ' price  ' 'stock  ' 'category ' 'desc' 'loading' 'btn' ;
+        grid-template-rows: auto repeat(4,65px) 250px 40px ;
+    padding: 20px 10px ;
+    gap: 10px 20px;
+     }
+}
+.loading{
+    grid-area: loading
+}
+
+.update-product{
+    background-color: $color1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+header{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    @include device('small'){
+        padding: 20px 10px ;
+         }
+}
+header >:first-child{
+  margin-right: 90px !important
+  
+}
+.input-group{
+    display: flex ;
+    flex-direction: column;
+    align-items: stretch;
+    position: relative
+
+}
+.form-products .input-group:nth-child(1){
+    grid-area: inputName;
+}
+.form-products .input-group:nth-child(2){
+    grid-area: price;
+}
+.form-products .input-group:nth-child(3){
+    grid-area: stock;
+}
+.form-products .input-group:nth-child(4){
+    grid-area: category;
+}
+.form-products .input-group:nth-child(5){
+    grid-area: desc;
+}
+
+textarea,input,select{
+    height: 100%;
+}
+label{
+    color:darken($color4,10%);
+    @include font('small');
+}
+
+.form-products .file{
+    grid-area: file;
+    border-radius: $borderRadius2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:center;
+     @include device('large'){
+     margin-bottom: 55px;
+    }
+}
+.img-file{
+    
+    height:auto;
+    max-width: 300px;
+    cursor: pointer;
+    position: relative;
+    border-radius: $borderRadius2;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+      @include device('large'){
+      margin: 15px 0
+    }
+   @include device('small'){
+    width: 200px;
+    justify-content: stretch
+   }
+
+}
+.img-file img{
+    border-radius: $borderRadius2;
+    max-height: 350px;
+}
+.colorChange{
+    color: $color1 !important
+}
+p{
+    color: $color3;
+    @include font('small');
+    margin:0 auto;
+    margin-top: 20px
+}
+.file svg{
+    @include font('Xl');
+    color:$color5;
+
+}
+.file h3{
+    color: $color4
+}
+.file button{
+  width: 70% !important;
+        @include device('large'){
+   width: 50% !important;
+   align-self: center;
+   justify-self: center
+   }
+}
+.form-products button{
+    background: linear-gradient(45deg,$color5,$color3);
+    grid-area: btn;
+    width: 100%;
+     @include device('large'){
+   width: 50%;
+   align-self: center;
+   justify-self: center
+   }
+}
+.form-products select, .form-products textarea{
+    border-radius: $borderRadius;
+    @include font('small');
+}
+.form-products textarea{
+    padding: 10px;
+}
+.form-products select:focus, .form-products textarea:focus{
+    border:solid $color5 1.5px !important;
+}
+.update-product h2{
+    margin:20px ;
+    @include font('medium');
+    color:$color4
+}
+input:focus{
+    border:solid $color5 1.5px !important;
+}
+input, textarea, select{
+    @include font('small');
+    border: solid darken($color2,30%) 1.5px;
+    color:$color4
+}
+.errors{
+    color: $danger !important;
+    margin:0;
+    font-size: 16px;
+    position: absolute;
+    top:5px;
+    right: 0
+}
+.input-error{
+    border: solid $danger 1.5px !important
+}

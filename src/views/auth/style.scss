@@ -1,0 +1,95 @@
+.v-enter,.v-leave-to{
+    opacity: 0;
+    transform: translate3d(-5px,0,0);
+}
+.v-enter-active,.v-leave-active{
+    transition: .2s all ease;
+}
+.auth{
+    height:150vh;
+    background: $color2
+}
+ .content{
+    display:flex;
+    justify-content: center;
+    padding-top: 70px;
+    @include device('small'){
+        flex-direction: column;
+        width: 70%;
+        margin: 0 auto;
+        padding-top: 40px;
+    }
+    @include device('small'){
+        width: 80%;
+    }
+    
+    
+}
+.welcome{
+    flex: 0 1 300px;
+    background: linear-gradient(45deg,$color3 5px,$color5);
+    color:$color1;
+    text-align: center;
+    padding-top:50px;
+    border-top-left-radius: $borderRadius2;
+    border-bottom-left-radius: $borderRadius2;
+    box-shadow: 3px 3px 7px rgba(0,0,0,0.1);
+     @include device('large'){
+         flex: 0 1 50px;
+         padding-top:0px;
+         padding:10px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: $borderRadius;
+    border-top-right-radius: $borderRadius;
+    }
+   
+}
+.welcome svg{
+    color: $color2;
+   font-size:50px ;
+    display: block;
+    margin: 30px auto;
+    @include device('small'){
+        margin: 10px auto;
+        font-size: 30px;
+}
+}
+
+.form{
+     flex: 0 1 400px;
+    border-top-right-radius: $borderRadius2;
+    border-bottom-right-radius: $borderRadius2;
+    background-color: $color1;
+    padding:40px 30px;
+    box-shadow: 3px 3px 7px rgba(0,0,0,0.1);
+    @include device(small){
+        padding: 30px 20px;
+    }
+     @include device('large'){
+   border-top-right-radius: 0;
+   border-bottom-left-radius: $borderRadius;
+
+    }
+}
+p{
+    margin:40px 0;
+    transition: all .2s ease-in;
+    color:$color4;
+    @include device('small'){
+        margin:30px 0;
+    }
+}
+p a{
+    background: none ;
+    padding: 5px;
+    color:$color5
+}
+p a:active,p a:hover{
+    background: none;
+    color: darken($color5,40%)
+}
+h1{
+    color:$color2;
+    @include font('Xl') ;
+
+}

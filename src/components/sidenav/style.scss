@@ -1,0 +1,125 @@
+aside{
+    z-index:2;
+    background: $color1;
+    grid-area: sidenav;
+    display: flex;
+    flex-direction: column;
+    border-right: solid 1.5px $color4;
+    background: url('../../assets/bg.jpg');
+    position: fixed;
+    height: 100vh;
+    width: 200px;
+    left: 0;
+    transition: .3s ease-out all;
+     &.full-screen{
+        left: -200px;
+        transition: .3s ease-out all
+    }
+   
+    z-index: 5
+}
+aside::after{
+    content: '';
+    background: rgba($color: black, $alpha: 0.8);
+    position: absolute;
+    height: 100vh;
+    width: 200px;
+    left: 0;
+    transition: .3s ease-out all;
+     &.full-screen{
+        left: -200px;
+        transition: .3s ease-out all
+    }
+    background-position: center;
+    z-index: -1;
+}
+
+.sidenav nav{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    width:100%;
+}
+
+.sublist ul{
+    height: 0;
+    transition: .3s ease all
+}
+.sublist-active ul{
+   height: 60px;
+   transition: .3s ease all
+}
+.sublist{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.sublist li a{
+    padding-left: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 15px;
+    border-top: solid rgba($color: $color1, $alpha: 0.2) 1.5px;
+    border-bottom: solid rgba($color: $color1, $alpha: 0.2) 1.5px;
+}
+.sublist div > a{
+    margin-bottom: 10px !important;
+}
+
+.sidenav a{
+    padding: 10px 0;
+    padding-left: 15px;
+    margin-bottom: 30px;
+    display: flex;
+    margin-right: 5px;
+    width:100%;
+    background: none;
+    @include font('small');
+    color: $color2;
+    border-radius: 0;
+}
+.sidenav nav a{
+    align-items: flex-start;
+}
+.profile-pic img{
+    border-radius: 50%;
+    border: solid $color2 1px;
+    width: 70px;
+    height: 70px;
+}
+nav svg{
+    margin-right: 10px;
+}
+.svg-right{
+    margin-left: auto
+}
+.sidenav .profile-pic div{
+    margin-bottom: 5px;
+
+}
+.profile-pic > a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:30px;
+    border-bottom: solid rgba($color: $color1, $alpha: 0.5) 1.5px;
+
+}
+.profile-pic p{
+    color:$color1;
+    font-size:14px
+}
+.sidenav nav .router-link-active{
+    color: $color2;
+    background: rgba($color: $color1, $alpha: 0.3);
+}
+
+.sidenav-products-enter,.sidenav-products-leave-to{
+    opacity: 0;
+    transform: translate3d(0px,-10px,0);
+}
+.sidenav-products-enter-active,.sidenav-products-leave-active{
+    transition: .2s all ease;
+}
+

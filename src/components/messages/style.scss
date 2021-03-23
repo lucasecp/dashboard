@@ -1,0 +1,33 @@
+.messages{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:15px;
+    border-radius: $borderRadius;
+    height: 40px;
+    align-self: center;
+    position: absolute;
+        right: 0;
+        top: 10%
+}
+.messages svg {
+    color: $color1;
+    @include font('small');
+}
+.messages.done{
+    background: $success
+}
+.messages.danger{
+    background: $danger
+}
+.messages p{
+    color: $color1;
+    @include font('small');;
+    margin-left:10px
+}
+.messages-enter,.messages-leave-to{
+    opacity: 0;
+}
+.messages-enter-active,.messages-leave-active{
+    transition: .5s all ease;
+}
