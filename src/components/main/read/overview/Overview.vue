@@ -64,45 +64,47 @@ export default {
     };
   },
   methods: {
-    async getOrder() {
-      try {
-        const { data } = await axios.get('/order/all');
+    getOrder() {
+      axios.get('/order/all')
+        .then(({ data }) => {
         // pegando todas as vendas
-       return data
-          .filter((d) => d.products.length)
-          .map((d) => d.products.map((c) => {
-            this.order.push({
-              category: c.category,
-              price: c.price,
-              mounth: c.order_products_users.created_at.split('-')[1],
-              year: c.order_products_users.created_at.split('-')[0],
-            });
-          }));
-      } catch (e) {
-        const status = get(e, 'response.status', false);
-        if (status === 401) {
-          this.$store.dispatch('auth/errorLogin', 'Sessão Expirada. Faça o login ');
-          return this.$router.push({ name: 'Auth' });
-        }
-        return e
-      }
+          data
+            .filter((d) => d.products.length)
+            .map((d) => d.products.map((c) => {
+              this.order.push({
+                category: c.category,
+                price: c.price,
+                mounth: c.order_products_users.created_at.split('-')[1],
+                year: c.order_products_users.created_at.split('-')[0],
+              });
+            }));
+            this.fillData();
+        })
+        .catch((e) => {
+          const status = get(e, 'response.status', false);
+          if (status === 401) {
+            this.$store.dispatch('auth/errorLogin', 'Sessão Expirada. Faça o login ');
+            return this.$router.push({ name: 'Auth' });
+          }
+          return e;
+        });
     },
     getCategory() {
       axios.get('product/all')
-        .then((resp) => {
-         return this.category = resp.data
-            .reduce((ac, v) => {
-              ac.push(v.category);
-              return ac;
-            }, [])
+        .then(({data}) => {
+          const category = data.reduce((ac, v) => {
+            ac.push(v.category);
+            return ac;
+          }, [])
             .filter((c, i, arr) => i === arr.indexOf(c));
-        }).catch((e) =>{
-         const status = get(e, 'response.status', false);
-        if (status === 401) {
-          this.$store.dispatch('auth/errorLogin', 'Sessão Expirada. Faça o login ');
-          return this.$router.push({ name: 'Auth' });
-        }
-        })
+          this.category = category;
+        }).catch((e) => {
+          const status = get(e, 'response.status', false);
+          if (status === 401) {
+            this.$store.dispatch('auth/errorLogin', 'Sessão Expirada. Faça o login ');
+            return this.$router.push({ name: 'Auth' });
+          }
+        });
     },
     getLastMounths() {
       this.currentYear = new Date().getFullYear();
@@ -191,11 +193,10 @@ export default {
       return value.length;
     },
   },
-  async created() {
+  created() {
+    this.getCategory();
+    this.getOrder();
     this.getLastMounths();
-     this.getCategory()
-    await this.getOrder();
-    this.fillData();
   },
 };
 </script>

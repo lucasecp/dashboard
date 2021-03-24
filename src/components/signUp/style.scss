@@ -17,7 +17,7 @@ input{
 form button{
     width:100%;
     margin:20px 0;
-    background: linear-gradient(45deg,$color3 10px,$color5);
+    background: $color5
 }
 form p{
     color: $danger

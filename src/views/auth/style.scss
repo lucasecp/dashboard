@@ -24,23 +24,24 @@
 }
 .welcome{
     flex: 0 1 300px;
-    background: linear-gradient(45deg,$color3 5px,$color5);
+    background: $color5;
     color:$color1;
     text-align: center;
     padding-top:50px;
+    padding:30px;
     border-top-left-radius: $borderRadius2;
     border-bottom-left-radius: $borderRadius2;
     box-shadow: 3px 3px 7px rgba(0,0,0,0.1);
      @include device('large'){
          flex: 0 1 50px;
-         padding-top:0px;
-         padding:10px;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: $borderRadius;
-    border-top-right-radius: $borderRadius;
+         padding-top:30px;
     }
     @include device('small'){
-     margin: 0 5px
+     padding:10px;
+     margin: 0 5px;
+     border-bottom-left-radius: 0;
+    border-top-left-radius: $borderRadius;
+    border-top-right-radius: $borderRadius;
     }
    
 }
@@ -64,12 +65,9 @@
     box-shadow: 3px 3px 7px rgba(0,0,0,0.1);
     @include device(small){
         padding: 30px 10px;
-        margin: 0 5px
-    }
-     @include device('large'){
-   border-top-right-radius: 0;
-   border-bottom-left-radius: $borderRadius;
-
+        margin: 0 5px;
+        border-top-right-radius: 0;
+        border-bottom-left-radius: $borderRadius;
     }
 }
 p{

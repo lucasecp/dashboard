@@ -30,19 +30,24 @@
       <form  method="put" @submit.prevent="handleUpdate">
        <div class="input-group">
        <p v-if="errors.name">{{errors.name}}</p>
-      <input type="text" :class="{'input-error': errors.name}"placeholder="Nome" v-model="form.name">
+      <input type="text" :class="{'input-error': errors.name}" placeholder="Nome"
+      v-model="form.name">
        </div>
        <div class="input-group">
        <p v-if="errors.email">{{errors.email}}</p>
-      <input type="email":class="{'input-error': errors.email}" placeholder="E-mail" v-model="form.email">
+      <input type="email":class="{'input-error': errors.email}" placeholder="E-mail"
+      v-model="form.email">
        </div>
        <div class="input-group">
        <p v-if="errors.password">{{errors.password}}</p>
-      <input type="password" :class="{'input-error': errors.password}"placeholder="Senha" v-model="form.password">
+      <input type="password" :class="{'input-error': errors.password}"
+      placeholder="Senha"
+      v-model="form.password">
        </div>
        <div class="input-group">
        <p v-if="errors.confirmPassword">{{errors.confirmPassword}}</p>
-      <input type="password" :class="{'input-error': errors.confirmPassword}"placeholder="Confirmar senha" v-model="confirmPassword">
+    <input type="password" :class="{'input-error': errors.confirmPassword}"
+    placeholder="Confirmar senha" v-model="confirmPassword">
        </div>
           <button>Atualizar dados</button>
       </form>
@@ -79,8 +84,8 @@ export default {
         email: '',
         password: '',
         confirmPassword: '',
-        loading: false,
       },
+      loading: false,
     };
   },
   methods: {
@@ -109,7 +114,7 @@ export default {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
-        }).then((resp) => {
+        }).then(() => {
           this.loading = false;
           this.createSuccess('Foto editada com sucesso.');
         }).catch((e) => {
@@ -117,7 +122,7 @@ export default {
           const status = get(e, 'response.status', false);
           const response = get(e, 'response.data', false);
           if (status === 401) {
-                this.loading = false;
+            this.loading = false;
             this.$store.dispatch('auth/errorLogin', 'Sessão Expirada. Faça o login ');
             this.$router.push({ name: 'Auth' });
           }
@@ -130,7 +135,7 @@ export default {
       return inputFile.click();
     },
     handleUpdate() {
-          this.loading = true;
+      this.loading = true;
       this.clearErrors();
       this.validate();
       const {

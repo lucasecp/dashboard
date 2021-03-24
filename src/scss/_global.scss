@@ -8,7 +8,7 @@
 button, a{
     width: 110px;
     border-radius: $borderRadius;
-    outline: none;
+    outline-color: rgba($color: #000000, $alpha: 0.4);
     background: $color5;
     color: $color1;
     border:none;

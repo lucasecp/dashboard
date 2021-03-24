@@ -136,7 +136,7 @@ p{
    }
 }
 .form-products button{
-    background: linear-gradient(45deg,$color5,$color3);
+    background: $color5;
     grid-area: btn;
     width: 100%;
  @include device('large'){
