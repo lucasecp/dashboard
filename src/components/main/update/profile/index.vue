@@ -17,7 +17,7 @@
         <div class="photo" >
         <img v-if="url"
         :src="url" alt="Perfil" @click="handleFile" />
-        <v-gravatar v-else :email="form.email" :size='400' @click="handleFile"/>
+        <v-gravatar v-else :email="form.email" @click="handleFile"/>
         </div>
       <span @click="handleFile"><font-awesome-icon :icon="icon('edit')"/>
         Nova
