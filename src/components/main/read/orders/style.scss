@@ -4,9 +4,8 @@
     display: grid;
     grid-template-rows: 450px auto;
     @include device('medium'){
+        padding:20px 10px;
         grid-template-rows: auto auto;
-
-        padding:20px 10px
     }
     
 }

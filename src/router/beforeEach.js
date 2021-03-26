@@ -8,7 +8,7 @@ export default async (to, from, next) => {
       await store.dispatch('auth/checkToken');
       next();
     } catch (err) {
-      store.dispatch('auth/errorLogin', 'Faça seu o login.');
+      store.dispatch('auth/errorLogin', 'Faça o seu login.');
       next({ name: 'Auth' });
     }
   } 
