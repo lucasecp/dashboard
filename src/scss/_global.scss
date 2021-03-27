@@ -37,6 +37,9 @@ h2{
 h2,h3{
     font-weight: 300
 }
+tbody td:nth-of-type(odd){
+   background: $color2
+}
 label{
     @include font('small') ;;
     margin-bottom: 5px;
