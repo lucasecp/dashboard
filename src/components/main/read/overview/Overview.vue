@@ -194,9 +194,9 @@ export default {
     },
   },
   created() {
+    this.getLastMounths();
     this.getCategory();
     this.getOrder();
-    this.getLastMounths();
   },
 };
 </script>
