@@ -56,7 +56,7 @@ export default {
       order: [],
       dataCollection: {},
       dataPieCollection: {},
-      rangeMounth: [],
+      rangeMonth: [],
       category: '',
       collectionConfig: [],
       rangeMountString: [],
@@ -106,7 +106,7 @@ export default {
           }
         });
     },
-    getLastMounths() {
+    getLastMonth() {
       this.currentYear = new Date().getFullYear();
       // gerando mês em string e numérica
       const result = [];
@@ -114,17 +114,20 @@ export default {
       for (let i = 0; i < 5; i++) {
         const m = new Date();
         const mString = new Date();
+        // todo dia 15 em todo mês
+        mString.setDate(15)
+        m.setDate(15)
         m.setMonth(m.getMonth() - i);
         mString.setMonth(mString.getMonth() - i);
         result.push(`${m.toLocaleDateString().split('/')[1]}`);
         resultString.push(`${mString.toUTCString().split(' ')[2]}`);
       }
-      this.rangeMounthString = resultString.reverse();
-      this.rangeMounth = result.reverse();
+      this.rangeMonthString = resultString.reverse();
+      this.rangeMonth = result.reverse();
     },
     fillData() {
       this.dataCollection = {
-        labels: this.rangeMounthString,
+        labels: this.rangeMonthString,
         datasets: this.category.map((name) => ({
           label: name,
           backgroundColor: this.fillStyle(name),
@@ -133,7 +136,7 @@ export default {
           borderWidth: 1,
           pointBorderColor: '#222',
           // retorna o total de vendas de cada categoria
-          data: this.rangeMounth.reduce((acu, vl, i) => {
+          data: this.rangeMonth.reduce((acu, vl, i) => {
             acu[i] = this.order.reduce((ac, value) => {
               // juntando cada categoria de acordo com o mês e ano atual
               if (name == value.category && vl == value.mounth
@@ -180,7 +183,7 @@ export default {
   computed: {
     getProfitPerMounth() {
       const value = this.order.reduce((ac, v) => {
-        if (v.mounth == this.rangeMounth[this.rangeMounth.length - 1]
+        if (v.mounth == this.rangeMonth[this.rangeMonth.length - 1]
         && this.currentYear == v.year) ac += Number(v.price);
         return ac;
       }, 0);
@@ -188,13 +191,13 @@ export default {
     },
     getSalesPerMounth() {
       const value = this.order
-        .filter((v) => v.mounth == this.rangeMounth[this.rangeMounth.length - 1]
+        .filter((v) => v.mounth == this.rangeMonth[this.rangeMonth.length - 1]
          && this.currentYear == v.year);
       return value.length;
     },
   },
   created() {
-    this.getLastMounths();
+    this.getLastMonth();
     this.getCategory();
     this.getOrder();
   },
